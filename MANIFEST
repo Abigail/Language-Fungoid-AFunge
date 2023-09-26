@@ -1,4 +1,6 @@
 lib/Language/Fungoid/AFunge.pm
+lib/Language/Fungoid/AFunge/Program.pm
+lib/Language/Fungoid/AFunge/Interpreter.pm
 Makefile.PL
 MANIFEST
 t/000_basic.t

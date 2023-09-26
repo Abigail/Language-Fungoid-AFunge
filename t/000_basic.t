@@ -10,12 +10,17 @@ use Test::More 0.88;
 
 our $r = eval "require Test::NoWarnings; 1";
 
-BEGIN {
-    use_ok ('Language::Fungoid::AFunge') or
-        BAIL_OUT ("Loading of 'Language::Fungoid::AFunge' failed");
+my $base = "Language::Fungoid::AFunge";
+
+my @modules = map {$base . $_}
+             (map {"::$_"} qw [Program Interpreter]), "";
+
+foreach my $module (@modules) {
+    use_ok ($module) or BAIL_OUT ("Loading of '$module' failed");
+    no strict 'refs';
+    ok defined ${"${module}::VERSION"}, "\$${module}::VERSION set";
 }
 
-ok defined $Language::Fungoid::AFunge::VERSION, "VERSION is set";
 
 Test::NoWarnings::had_no_warnings () if $r;
 

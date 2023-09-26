@@ -1,4 +1,4 @@
-package Language::Fungoid::AFunge;
+package Language::Fungoid::AFunge::Interpreter;
 
 use 5.028;
 use strict;
@@ -8,8 +8,16 @@ no  warnings 'syntax';
 use experimental 'signatures';
 use experimental 'lexical_subs';
 
-use Language::Fungoid::AFunge::Program;
-use Language::Fungoid::AFunge::Interpreter;
+use Hash::Util::FieldHash qw [fieldhash];
+
+my $X = 0;
+my $Y = $X + 1;
+
+fieldhash my %pos;
+fieldhash my %delta;
+
+sub new  ($class) {bless \do {my $var} => $class};
+sub init ($self)  {$self};
 
 our $VERSION = '2023092601';
 

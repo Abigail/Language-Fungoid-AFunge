@@ -1,4 +1,4 @@
-package Language::Fungoid::AFunge;
+package Language::Fungoid::AFunge::Program;
 
 use 5.028;
 use strict;
@@ -8,8 +8,14 @@ no  warnings 'syntax';
 use experimental 'signatures';
 use experimental 'lexical_subs';
 
-use Language::Fungoid::AFunge::Program;
-use Language::Fungoid::AFunge::Interpreter;
+use Hash::Util::FieldHash qw [fieldhash];
+
+my ($X_MIN, $Y_MIN, $X_MAX, $Y_MAX) = (0, 1, 2, 3);  # Indices
+
+fieldhash my %dimensions;
+
+sub new  ($class) {bless \do {my $var} => $class};
+sub init ($self)  {$self};
 
 our $VERSION = '2023092601';
 
