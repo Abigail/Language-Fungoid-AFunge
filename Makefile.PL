@@ -31,7 +31,7 @@ my %args = (
         'experimental'           =>  0.019,
         'Hash::Util::FieldHash'  =>  1.20,
     },
-    MIN_PERL_VERSION     =>   5.028,
+    MIN_PERL_VERSION     =>   5.038,
     AUTHOR               =>  "$ME <$LOCAL_ADDR\@$DOMAIN>",
     LICENSE              =>  'mit',
     META_MERGE           => {

@@ -1,12 +1,9 @@
 package Language::Fungoid::AFunge::Interpreter;
 
-use 5.028;
+use 5.038;
 use strict;
 use warnings;
 no  warnings 'syntax';
-
-use experimental 'signatures';
-use experimental 'lexical_subs';
 
 use Hash::Util::FieldHash qw [fieldhash];
 
