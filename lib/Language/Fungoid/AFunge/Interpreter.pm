@@ -44,7 +44,7 @@ L<< git://github.com/Abigail/Language-Fungoid-AFunge.git >>.
 
 =head1 AUTHOR
 
-Abigail, L<< mailto:cpan@abigail.be >>.
+Abigail, L<< mailto:cpan@abigail.freedom.nl >>.
 
 =head1 COPYRIGHT and LICENSE
 
