@@ -1,25 +1,36 @@
-package Language::Fungoid::AFunge::Interpreter;
-
 use 5.038;
 use strict;
 use warnings;
 no  warnings 'syntax';
+use experimental 'class';
 
-use Hash::Util::FieldHash qw [fieldhash];
+class Language::Fungoid::AFunge::Interpreter 2023092601;
 
 my $X = 0;
 my $Y = $X + 1;
 
-fieldhash my %pos;
-fieldhash my %delta;
+field @pos;
+field @delta;
 
-sub new  ($class) {bless \do {my $var} => $class};
-sub init ($self)  {$self};
+ADJUST {
+    $pos   [$X] = 0;
+    $pos   [$Y] = 0;
+    $delta [$X] = 1;
+    $delta [$Y] = 0;
+}
 
-our $VERSION = '2023092601';
+method position () {@pos}
+method delta    () {@delta}
 
+method set_position ($x, $y) {
+    @pos [$X, $Y] = ($x, $y);
+    $self;
+}
+method set_delta ($x, $y) {
+    @delta [$X, $Y] = ($x, $y);
+    $self;
+}
 
-1;
 
 __END__
 

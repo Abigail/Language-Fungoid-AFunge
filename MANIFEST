@@ -4,6 +4,9 @@ lib/Language/Fungoid/AFunge/Interpreter.pm
 Makefile.PL
 MANIFEST
 t/000_basic.t
+t/100_Interpreter/000_basic.t
+t/100_Interpreter/010_position.t
+t/100_Interpreter/020_delta.t
 t/950_pod.t
 t/960_pod_coverage.t
 t/980_versions.t
