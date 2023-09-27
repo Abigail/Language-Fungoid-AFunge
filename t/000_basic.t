@@ -18,9 +18,8 @@ my @modules = map {$base . $_}
 foreach my $module (@modules) {
     use_ok ($module) or BAIL_OUT ("Loading of '$module' failed");
     no strict 'refs';
-    ok defined ${"${module}::VERSION"}, "\$${module}::VERSION set";
+    ok ${"${module}::VERSION"}, "\$${module}::VERSION set";
 }
-
 
 Test::NoWarnings::had_no_warnings () if $r;
 
