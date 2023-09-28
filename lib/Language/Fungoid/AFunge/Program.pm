@@ -1,23 +1,57 @@
-package Language::Fungoid::AFunge::Program;
-
 use 5.038;
 use strict;
 use warnings;
 no  warnings 'syntax';
+use experimental 'class';
 
-use Hash::Util::FieldHash qw [fieldhash];
+class Language::Fungoid::AFunge::Program 2023092601;
 
-my ($X_MIN, $Y_MIN, $X_MAX, $Y_MAX) = (0, 1, 2, 3);  # Indices
+################################################################################
+#
+# Dimensions of the program. This can be increased during the run
+# of the program.
+#
+################################################################################
 
-fieldhash my %dimensions;
+field $x_min = 0;
+field $y_min = 0;
+field $x_max = 1;
+field $y_max = 1;
 
-sub new  ($class) {bless \do {my $var} => $class};
-sub init ($self)  {$self};
+#
+# Getters
+#
+method dimensions () {$x_min, $y_min, $x_max, $y_max}
+method x_min      () {$x_min}
+method y_min      () {$y_min}
+method x_max      () {$x_max}
+method y_max      () {$y_max}
+method width      () {$x_max - $x_min}
+method height     () {$y_max - $y_min}
 
-our $VERSION = '2023092601';
+#
+# Setters
+#
+method set_dimensions  ($x_min, $y_min, $x_max, $y_max) {
+    $self -> set_x_min ($x_min)
+          -> set_y_min ($y_min)
+          -> set_x_max ($x_max)
+          -> set_y_max ($y_max)
+}
+           
+method set_x_min ($in) {$x_min = $in; $self}
+method set_y_min ($in) {$y_min = $in; $self}
+method set_x_max ($in) {$x_max = $in; $self}
+method set_y_max ($in) {$y_max = $in; $self}
 
+method set_cell ($x, $y, $value = ' ') {
+    $x_min = $x     if $x <  $x_min;
+    $y_min = $y     if $y <  $y_min;
+    $x_max = $x + 1 if $x >= $x_max;
+    $y_max = $y + 1 if $y >= $y_max;
+    $self;
+}
 
-1;
 
 __END__
 
