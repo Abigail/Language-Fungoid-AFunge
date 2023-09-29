@@ -14,8 +14,11 @@ use Test::More 0.88;
 our $r = eval "require Test::NoWarnings; 1";
 
 use Language::Fungoid::AFunge::Interpreter;
+use Language::Fungoid::AFunge::Program;
 
-my $interpreter = Language::Fungoid::AFunge::Interpreter:: -> new;
+my $program     = Language::Fungoid::AFunge::Program::     -> new;
+my $interpreter = Language::Fungoid::AFunge::Interpreter:: -> new
+                                                  (program => $program);
 
 is_deeply [$interpreter -> position], [0, 0], "Initial position";
 

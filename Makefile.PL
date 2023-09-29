@@ -28,8 +28,9 @@ my %args = (
     PREREQ_PM            => {
         'strict'                 =>  0,
         'warnings'               =>  0,
-        'experimental'           =>  0.019,
-        'Hash::Util::FieldHash'  =>  1.20,
+        'experimental'           =>  0,
+        'Hash::Util::FieldHash'  =>  0,
+        'Scalar::Util'           =>  1.62,
     },
     MIN_PERL_VERSION     =>   5.038,
     AUTHOR               =>  "$ME <$LOCAL_ADDR\@$DOMAIN>",

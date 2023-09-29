@@ -6,10 +6,20 @@ use experimental 'class';
 
 class Language::Fungoid::AFunge::Interpreter 2023092601;
 
+use Scalar::Util 'reftype';
+
 field $X  = 0;
 field $Y  = 0;
 field $dX = 1;
 field $dY = 0;
+field $program : param;
+
+ADJUST {
+    die "program is not a Language::Fungoid::AFunge::Program"
+         unless  $program              &&
+         reftype $program eq "OBJECT"  &&
+                 $program -> isa ("Language::Fungoid::AFunge::Program");
+}
 
 method position () {$X,  $Y}
 method delta    () {$dX, $dY}
