@@ -6,28 +6,20 @@ use experimental 'class';
 
 class Language::Fungoid::AFunge::Interpreter 2023092601;
 
-my $X = 0;
-my $Y = $X + 1;
+field $X  = 0;
+field $Y  = 0;
+field $dX = 1;
+field $dY = 0;
 
-field @pos;
-field @delta;
-
-ADJUST {
-    $pos   [$X] = 0;
-    $pos   [$Y] = 0;
-    $delta [$X] = 1;
-    $delta [$Y] = 0;
-}
-
-method position () {@pos}
-method delta    () {@delta}
+method position () {$X,  $Y}
+method delta    () {$dX, $dY}
 
 method set_position ($x, $y) {
-    @pos [$X, $Y] = ($x, $y);
+    ($X, $Y) = ($x, $y);
     $self;
 }
-method set_delta ($x, $y) {
-    @delta [$X, $Y] = ($x, $y);
+method set_delta ($dx, $dy) {
+    ($dX, $dY) = ($dx, $dy);
     $self;
 }
 
