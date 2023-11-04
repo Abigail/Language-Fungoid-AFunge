@@ -136,6 +136,50 @@ run_test "Wrap moving west",
           delta    => [-1,  0],
           exp      => [ 9,  5];
 
+#
+# Wrapping around, double speed
+#
+
+run_test "Wrap moving north, double speed, no offset",
+          position => [ 5,  0],
+          delta    => [ 0, -2],
+          exp      => [ 5,  8];
+
+run_test "Wrap moving north, double speed, with offset",
+          position => [ 5,  1],
+          delta    => [ 0, -2],
+          exp      => [ 5,  9];
+
+run_test "Wrap moving east, double speed, no offset",
+          position => [ 9,  5],
+          delta    => [ 2,  0],
+          exp      => [ 1,  5];
+
+run_test "Wrap moving east, double speed, with offset",
+          position => [ 8,  5],
+          delta    => [ 2,  0],
+          exp      => [ 0,  5];
+
+run_test "Wrap moving south, double speed, no offset",
+          position => [ 5,  9],
+          delta    => [ 0,  2],
+          exp      => [ 5,  1];
+
+run_test "Wrap moving south, double speed, with offset",
+          position => [ 5,  8],
+          delta    => [ 0,  2],
+          exp      => [ 5,  0];
+
+run_test "Wrap moving west, double speed, no offset",
+          position => [ 0,  5],
+          delta    => [-2,  0],
+          exp      => [ 8,  5];
+
+run_test "Wrap moving west, double speed, with offset",
+          position => [ 1,  5],
+          delta    => [-2,  0],
+          exp      => [ 9,  5];
+
 
 Test::NoWarnings::had_no_warnings () if $r;
 
