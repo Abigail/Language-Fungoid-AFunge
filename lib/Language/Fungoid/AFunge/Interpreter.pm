@@ -71,6 +71,22 @@ method step () {
 }
           
 
+################################################################################
+#
+# turn_right ()
+# turn_left  ()
+# flip       ()
+#
+# Change the direction of interpreter. turn_right rotates the interpreter
+# 90 degrees clockwise; turn_left rotates the interpreter 90 degrees 
+# counter clockwise; flip rotates the interpreter 180 degrees (sending it
+# back in the direction it came from).
+#
+################################################################################
+
+method turn_left  () {($dX, $dY) = ( $dY, -$dX); $self}
+method turn_right () {($dX, $dY) = (-$dY,  $dX); $self}
+method flip       () {($dX, $dY) = (-$dX, -$dY); $self}
 
 __END__
 

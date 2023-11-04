@@ -8,6 +8,7 @@ t/100_Interpreter/000_basic.t
 t/100_Interpreter/010_position.t
 t/100_Interpreter/020_delta.t
 t/100_Interpreter/100_step.t
+t/100_Interpreter/110_turning.t
 t/110_Program/000_basic.t
 t/110_Program/010_dimensions.t
 t/950_pod.t
