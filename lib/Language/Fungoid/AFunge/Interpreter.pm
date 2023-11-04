@@ -52,13 +52,13 @@ method step () {
         #
         my ($min_X, $min_Y, $max_X, $max_Y) = $program -> dimensions;
 
-        my $steps_X = $dX <  0 ? int (($X - $max_X) / $dX)
+        my $steps_X = $dX <  0 ? int (($X - $max_X + 1) / $dX)
                     : $dX == 0 ? 0
-                    :            int (($X - $min_X) / $dX);
+                    :            int (($X - $min_X)     / $dX);
 
-        my $steps_Y = $dY <  0 ? int (($Y - $max_Y) / $dY)
+        my $steps_Y = $dY <  0 ? int (($Y - $max_Y + 1) / $dY)
                     : $dY == 0 ? 0
-                    :            int (($Y - $min_Y) / $dY);
+                    :            int (($Y - $min_Y)     / $dY);
 
         my $steps = $steps_X && $steps_Y ? min ($steps_X,   $steps_Y)
                                          :      $steps_X || $steps_Y;
