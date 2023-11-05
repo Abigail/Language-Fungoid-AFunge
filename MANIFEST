@@ -1,6 +1,7 @@
 lib/Language/Fungoid/AFunge.pm
 lib/Language/Fungoid/AFunge/Program.pm
 lib/Language/Fungoid/AFunge/Interpreter.pm
+lib/Language/Fungoid/AFunge/Stack.pm
 Makefile.PL
 MANIFEST
 t/000_basic.t
@@ -11,6 +12,7 @@ t/100_Interpreter/100_step.t
 t/100_Interpreter/110_turning.t
 t/110_Program/000_basic.t
 t/110_Program/010_dimensions.t
+t/120_Stack/000_basic.t
 t/950_pod.t
 t/960_pod_coverage.t
 t/980_versions.t
