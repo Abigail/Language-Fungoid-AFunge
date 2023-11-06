@@ -1,10 +1,12 @@
 lib/Language/Fungoid/AFunge.pm
-lib/Language/Fungoid/AFunge/Program.pm
 lib/Language/Fungoid/AFunge/Interpreter.pm
+lib/Language/Fungoid/AFunge/Program.pm
 lib/Language/Fungoid/AFunge/Stack.pm
+lib/Language/Fungoid/AFunge/Utils.pm
 Makefile.PL
 MANIFEST
 t/000-basic.t
+t/010-Utils.pm/000-basic.t
 t/100-Interpreter.pm/000-basic.t
 t/100-Interpreter.pm/010-position.t
 t/100-Interpreter.pm/020-delta.t
