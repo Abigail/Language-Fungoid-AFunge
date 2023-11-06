@@ -40,6 +40,7 @@ my %args = (
             'strict'             => 0,
             'warnings'           => 0,
             'Test::More'         => 0.88,
+            'Test::Exception'    => 0,
         },
         resources        => {
             repository   => $REPOSITORY,

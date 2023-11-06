@@ -37,7 +37,7 @@ method push ($element) {
     $self
 }
 method pop () {
-    @$stack ? 0 : pop @$stack
+    @$stack ? pop @$stack : 0
 }
 
 ################################################################################
