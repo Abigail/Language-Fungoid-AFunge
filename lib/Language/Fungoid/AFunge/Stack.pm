@@ -6,7 +6,8 @@ use experimental 'class';
 
 class Language::Fungoid::AFunge::Stack 2023110501;
 
-use Scalar::Util qw [looks_like_number];
+use Language::Fungoid::AFunge::Utils qw [looks_like_natural_number
+                                         looks_like_integer];
 
 ################################################################################
 #
@@ -32,13 +33,14 @@ field $stack = [];
 
 method push ($element) {
     die "Only integers can be pushed on a stack"
-         if !looks_like_number ($element) || $element != int ($element);
+         unless looks_like_integer ($element);
     push @$stack => $element;
     $self
 }
 method pop () {
     @$stack ? pop @$stack : 0
 }
+
 
 ################################################################################
 #
@@ -51,9 +53,49 @@ method pop () {
 ################################################################################
 
 method top ($depth = 0) {
-    die "top () takes an optional non-negative integer as argument"
-         if $depth && (!looks_like_number ($depth) || $depth < 0);
+    die "Offsets need to be non-negative integers"
+         unless looks_like_natural_number $depth;
     $depth < @$stack ? $$stack [- $depth - 1] : 0;
+}
+
+
+################################################################################
+#
+# method dup ($self, $amount = 1)
+#
+# Duplicates the $amount (defaults to 1) top level elements of the stack,
+# keeping the order. If $amount exceeds to number of elements pushed,
+# add as many 0's as needed.
+#
+################################################################################
+
+method dup ($amount = 1) {
+    die "Offsets need to be non-negative integers"
+         unless looks_like_natural_number $amount;
+    if ($amount) {
+        my @new;
+        if ($amount > @$stack) {
+            @new = ((0) x ($amount - @$stack), @$stack);
+        }
+        else {
+            @new = @$stack [- $amount .. - 1];
+        }
+        push @$stack => @new;
+    }
+    $self;
+}
+
+################################################################################
+#
+# method __stack__ ()
+#
+# Returns the entire stack. For debugging/testing only.
+#
+################################################################################
+
+method __stack__ () {
+    die "__stack__ is only available when testing" unless $0 =~ /\.t$/;
+    return @$stack;
 }
 
 __END__
