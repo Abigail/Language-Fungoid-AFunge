@@ -22,13 +22,17 @@ field $stack = [];
 # method push ($element)
 # method pop ()
 # 
-# Standard push/pop method of a stack. Except that a stack is supposed to
-# have an unlimited amount of 0's at the bottom, so popping a value of 
-# "an empty stack" returns 0.
+# Standard push/pop method of a stack.
+#
+# We can only push integers on the stack. Furthermore, a stack is assumed
+# to contain an unlimited amount of 0's before anything is pushed on it.
+# Which means we return 0 from a traditionally empty stack.
 #
 ################################################################################
 
 method push ($element) {
+    die "Only integers can be pushed on a stack"
+         if !looks_like_number ($element) || $element != int ($element);
     push @$stack => $element;
     $self
 }
