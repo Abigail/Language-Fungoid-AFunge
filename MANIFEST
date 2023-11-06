@@ -7,6 +7,7 @@ Makefile.PL
 MANIFEST
 t/000-basic.t
 t/010-Utils.pm/000-basic.t
+t/010-Utils.pm/100-looks_like.t
 t/100-Interpreter.pm/000-basic.t
 t/100-Interpreter.pm/010-position.t
 t/100-Interpreter.pm/020-delta.t
