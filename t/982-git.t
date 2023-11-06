@@ -1,8 +1,12 @@
 #!/usr/bin/perl
 
+use 5.038;
+
 use strict;
 use warnings;
 no  warnings 'syntax';
+
+use lib grep {-d} '../lib', '../../lib';
 
 use Test::More 0.88;
 

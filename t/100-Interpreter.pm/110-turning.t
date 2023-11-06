@@ -6,8 +6,7 @@ use strict;
 use warnings;
 no  warnings 'syntax';
 
-use if -d    "../lib", "lib",    "../lib";
-use if -d "../../lib", "lib", "../../lib";
+use lib grep {-d} '../lib', '../../lib';
 
 use Test::More 0.88;
 

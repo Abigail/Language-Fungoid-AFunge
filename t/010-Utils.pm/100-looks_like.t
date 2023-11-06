@@ -8,8 +8,7 @@ no  warnings 'syntax';
 
 use experimental "for_list";
 
-use if -d    "../lib", "lib",    "../lib";
-use if -d "../../lib", "lib", "../../lib";
+use lib grep {-d} '../lib', '../../lib';
 
 use Test::More 0.88;
 
